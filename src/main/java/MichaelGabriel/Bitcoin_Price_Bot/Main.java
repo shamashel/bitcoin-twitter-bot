@@ -10,7 +10,7 @@ public class Main {
 			String ltc = gdax.getLTCPrice();
 			try {
 				if(btc != null && ltc != null) {
-					String message = ("Current #BTC Price on GDAX: " + btc + "\nCurrent #LTC Price on GDAX: " + ltc + "\n#Crypto #GDAX");
+					String message = ("Current #BTC Price on GDAX: " + btc + "\nCurrent #LTC Price on GDAX: " + ltc + "\n#Bitcoin #Litecoin #GDAX");
 					MyTwitter myTwitter = new MyTwitter();
 					myTwitter.login();
 					myTwitter.tweet(message);
