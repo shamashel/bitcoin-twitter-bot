@@ -6,15 +6,16 @@ public class Main {
 		boolean cancel = false;
 		while(!cancel) {
 			GDAX gdax = new GDAX();
-			String post = gdax.getPrice();
+			String btc = gdax.getBTCPrice();
+			String ltc = gdax.getLTCPrice();
 			try {
-				if(post != null) {
-					String message = ("Current Bitcoin Price on GDAX: " + post);
+				if(btc != null && ltc != null) {
+					String message = ("Current #BTC Price on GDAX: " + btc + "\nCurrent #LTC Price on GDAX: " + ltc + "\n#Crypto #GDAX");
 					MyTwitter myTwitter = new MyTwitter();
 					myTwitter.login();
 					myTwitter.tweet(message);
 				}
-				Thread.sleep(900000);
+				Thread.sleep(300000);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
