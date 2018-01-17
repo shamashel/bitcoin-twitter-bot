@@ -1,8 +1,8 @@
 # bitcoin-twitter-bot
-Pretty simple bot that takes the price of bitcoin and litecoin from GDAX and posts it on twitter.
+Pretty simple bot that takes the price of bitcoin and litecoin from GDAX and Binance, then posts it on twitter.
 
 ## API Integration
-GDAX API Integration is done via querying the GDAX API and parsing the resulting JSON file.
+GDAX and Binance API Integration is done via querying the respective API and parsing the resulting JSON file.
 
 Twitter API Integration is done via [Twitter4j](https://github.com/yusuke/twitter4j), a pretty cool Library that makes working with the Twitter API ridiculously easy.
 

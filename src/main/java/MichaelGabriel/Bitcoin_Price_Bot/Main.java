@@ -1,21 +1,27 @@
 package MichaelGabriel.Bitcoin_Price_Bot;
 
+import java.util.Random;
+
 public class Main {
 
 	public static void main(String[] args) {		
 		boolean cancel = false;
 		while(!cancel) {
 			GDAX gdax = new GDAX();
-			String btc = gdax.getBTCPrice();
-			String ltc = gdax.getLTCPrice();
+			Binance binance = new Binance();
+			String gbtc = gdax.getBTCPrice();
+			String gltc = gdax.getLTCPrice();
+			String bbtc = binance.getCoinPrice("BTC");
+			String bltc = binance.getCoinPrice("LTC");
 			try {
-				if(btc != null && ltc != null) {
-					String message = ("Current #BTC Price on GDAX: " + btc + "\nCurrent #LTC Price on GDAX: " + ltc + "\n#Bitcoin #Litecoin #GDAX");
+				if(gbtc != null && gltc != null && bbtc != null && bltc != null) {
+					String message = ("Current #BTC Price:" + "\nGDAX : " + gbtc + " | Binance : " + bbtc + "\n\nCurrent #LTC Price: " + "\nGDAX : " + gltc+ " | Binance : " + bltc + "\n#Bitcoin #Litecoin");
 					MyTwitter myTwitter = new MyTwitter();
 					myTwitter.login();
 					myTwitter.tweet(message);
 				}
-				Thread.sleep(300000);
+				
+				Thread.sleep(600000);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
